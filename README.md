@@ -1,8 +1,8 @@
 # To-Do Manager
 
-A distributed, containerized To-Do List application built with Python Flask and MongoDB, including load balancing, authentication, in-built security and sanity checks, and debugging capabilities.
+A distributed, containerized To-Do List application built with Python, Flask, and MongoDB, including load balancing, authentication, in-built security and sanity checks, and debugging capabilities.
 
-## Features
+## ⭐ Features
 
 *   **API Gateway:** Central entry point handling authentication and request routing.
 *   **Load Balancing:** Distribution of requests across 2 consecutively loaded worker nodes.
@@ -10,19 +10,19 @@ A distributed, containerized To-Do List application built with Python Flask and 
 *   **Persistence:** NoSQL (MongoDB) for data storage.
 *   **Containerization:** Fully Dockerized environment using Docker Compose.
 
-## Tech Stack
+## 🛠 Tech Stack
 
 *   **Backend:** Python, Flask
 *   **Database:** MongoDB
 *   **Frontend:** HTML, JavaScript
 *   **Containerization:** Docker Compose
 
-## Prerequisites
+## 💻 Prerequisites
 
 *   [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) installed on your machine.
 *   (Optional for local run) Python 3.9+ and a local MongoDB server (mongod) instance.
 
-## Installation & Running
+## 🚀 Installation & Running
 
 ### Method 1: Docker (Recommended)
 
@@ -30,7 +30,7 @@ The easiest way to run the application is using Docker Compose, which spins up t
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/quanted129/ToDoManager
     cd ToDoManager
     ```
 
@@ -68,7 +68,7 @@ If you prefer running without Docker, ensure MongoDB is running locally on port 
 4.  **Access the application:**
     Open `http://127.0.0.1:5000` in your browser.
 
-## Usage
+## 👨‍💻 Usage
 
 To interact with the task list, you must first log in via the UI.
 
@@ -76,7 +76,7 @@ To interact with the task list, you must first log in via the UI.
 *   **Username:** `admin`
 *   **Password:** `admin`
 
-⚙️ Configuration
+## ⚙️ Configuration
 
 Environment variables can be adjusted in docker-compose.yml or config.py:
 
