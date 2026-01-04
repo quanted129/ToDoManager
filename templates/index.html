@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List API Client</title>
+</head>
+<body style="font-family: sans-serif; padding: 20px;">
+
+    <h1>My to-do list:</h1>
+
+    <div id="auth-section" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+        <h3>Login</h3>
+        <input type="text" id="username" placeholder="Username" value="admin">
+        <input type="password" id="password" placeholder="Password" value="admin">
+        <button onclick="login()">Login</button>
+        <span id="auth-status" style="color: red;">Not Logged In</span>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <h3>Create Task</h3>
+        <input type="text" id="new-title" placeholder="Title">
+        <input type="text" id="new-desc" placeholder="Description">
+        <select id="new-status">
+            <option value="todo">To Do</option>
+            <option value="in_progress">In Progress</option>
+            <option value="done">Done</option>
+        </select>
+        <button onclick="createTask()">Add Task</button>
+    </div>
+
+    <h3>Tasks List</h3>
+    <button onclick="loadTasks()">Refresh List</button>
+    <div id="loading" style="display:none;">Loading...</div>
+    <ul id="task-list" style="list-style-type: none; padding: 0;">
+
+    </ul>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

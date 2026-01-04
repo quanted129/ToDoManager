@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: todo_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  node1:
+    build: .
+    container_name: todo_node1
+    command: python service_node.py --port 5001
+    ports:
+      - "5001:5001"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+    depends_on:
+      - mongo
+
+  node2:
+    build: .
+    container_name: todo_node2
+    command: python service_node.py --port 5002
+    ports:
+      - "5002:5002"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+    depends_on:
+      - mongo
+
+  gateway:
+    build: .
+    container_name: todo_gateway
+    command: python app.py
+    ports:
+      - "5000:5000"
+    environment:
+      - NODES=http://node1:5001,http://node2:5002
+      - MONGO_URI=mongodb://mongo:27017/
+    depends_on:
+      - node1
+      - node2
+
+volumes:
+  mongo_data:
